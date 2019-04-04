@@ -1,25 +1,39 @@
-from collections import Counter
-import random
-
-import numpy as np
-from sklearn.utils.validation import check_random_state
-
-from autosklearn.constants import *
-from autosklearn.ensembles.abstract_ensemble import AbstractEnsemble
-from autosklearn.metrics import calculate_score
-from autosklearn.metrics import Scorer
+from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import SGDRegressor
+from hyperopt import fmin, tpe, hp, partial, Trials, STATUS_OK
 
 
+class IncrementalLearningBase:
+    def __init__(self, ):
+        pass
+
+    def fit(self, X, y, **fit_params):
+        pass
+
+
+if __name__ == '__main__':
+    from sklearn.datasets import load_iris
+    data = load_iris()
+    target = data.target
+    data = data.data
+    model = SGDClassifier()
+    model.fit(data, target)
+    model.predict(data)
+
+
+
+
+'''
 class EnsembleSelection(AbstractEnsemble):
     def __init__(
-        self,
-        ensemble_size: int,
-        task_type: int,
-        metric: Scorer,
-        sorted_initialization: bool=False,
-        bagging: bool=False,
-        mode: str='fast',
-        random_state: np.random.RandomState=None,
+            self,
+            ensemble_size: int,
+            task_type: int,
+            metric: Scorer,
+            sorted_initialization: bool = False,
+            bagging: bool = False,
+            mode: str = 'fast',
+            random_state: np.random.RandomState = None,
     ):
         self.ensemble_size = ensemble_size
         self.task_type = task_type
@@ -96,8 +110,8 @@ class EnsembleSelection(AbstractEnsemble):
             for j, pred in enumerate(predictions):
                 # TODO: this could potentially be vectorized! - let's profile
                 # the script first!
-                fant_ensemble_prediction[:,:] = weighted_ensemble_prediction + \
-                                             (1. / float(s + 1)) * pred
+                fant_ensemble_prediction[:, :] = weighted_ensemble_prediction + \
+                                                 (1. / float(s + 1)) * pred
                 scores[j] = 1 - calculate_score(
                     solution=labels,
                     prediction=fant_ensemble_prediction,
@@ -231,7 +245,7 @@ class EnsembleSelection(AbstractEnsemble):
         return 'Ensemble Selection:\n\tTrajectory: %s\n\tMembers: %s' \
                '\n\tWeights: %s\n\tIdentifiers: %s' % \
                (' '.join(['%d: %5f' % (idx, performance)
-                         for idx, performance in enumerate(self.trajectory_)]),
+                          for idx, performance in enumerate(self.trajectory_)]),
                 self.indices_, self.weights_,
                 ' '.join([str(identifier) for idx, identifier in
                           enumerate(self.identifiers_)
@@ -264,3 +278,4 @@ class EnsembleSelection(AbstractEnsemble):
 
     def get_validation_performance(self):
         return self.trajectory_[-1]
+'''

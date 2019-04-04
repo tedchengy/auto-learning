@@ -163,7 +163,7 @@ def f(params):
 
 
 trials = Trials()
-best = fmin(f, space, algo=tpe.suggest, max_evals=100, trials=trials)
+best = fmin(f, space, algo=tpe.suggest, max_evals=10, trials=trials)
 print('best:')
 print(best)
 

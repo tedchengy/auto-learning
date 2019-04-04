@@ -4,10 +4,6 @@
     <list default="true" id="48f1286d-c1a3-48e5-a406-fb778b7709e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autolearning/pipeline/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/autolearning/pipeline/classification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_autosklearn_multi.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_autosklearn_multi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_autosklearn_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_autosklearn_regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_autosklearn_single.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_autosklearn_single.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +20,7 @@
     <SUITE FILE_PATH="coverage/auto_learning$abstract_ensemble.coverage" NAME="abstract_ensemble Coverage Results" MODIFIED="1554355968034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto-learning/ensembles" />
     <SUITE FILE_PATH="coverage/auto_learning$ex_fmin.coverage" NAME="ex_fmin Coverage Results" MODIFIED="1553591867284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/auto_learning$tune.coverage" NAME="tune Coverage Results" MODIFIED="1553590056485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/r2/conda/envs/py3_dask/lib/python3.6/site-packages/ray/tune" />
-    <SUITE FILE_PATH="coverage/auto_learning$ensemble_selection.coverage" NAME="ensemble_selection Coverage Results" MODIFIED="1554370465449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/autolearning/ensembles" />
+    <SUITE FILE_PATH="coverage/auto_learning$ensemble_selection.coverage" NAME="ensemble_selection Coverage Results" MODIFIED="1554370752236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/autolearning/ensembles" />
     <SUITE FILE_PATH="coverage/auto_learning$example_autosklearn_multi.coverage" NAME="example_autosklearn_multi Coverage Results" MODIFIED="1552967607538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
   </component>
   <component name="FileEditorManager">
@@ -41,10 +37,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+            <state relative-caret-position="960">
+              <caret line="169" column="3" lean-forward="true" selection-start-line="169" selection-start-column="3" selection-end-line="169" selection-end-column="3" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/example_autosklearn_multi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2568">
+              <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+              <folding>
+                <element signature="e#556#578#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="43" />
     <option name="y" value="273" />
     <option name="width" value="2491" />
@@ -248,12 +256,12 @@
       <workItem from="1553501932291" duration="8462000" />
       <workItem from="1553737176845" duration="2408000" />
       <workItem from="1554350645404" duration="4225000" />
-      <workItem from="1554360149839" duration="10421000" />
+      <workItem from="1554360149839" duration="11207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48685000" />
+    <option name="totallyTimeSpent" value="49471000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,16 +453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/example_autosklearn_multi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
-          <folding>
-            <element signature="e#556#578#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -671,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/autolearning/ensembles/abstract_ensemble.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -702,10 +690,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/example_autosklearn_multi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2568">
+          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+          <folding>
+            <element signature="e#556#578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+        <state relative-caret-position="960">
+          <caret line="169" column="3" lean-forward="true" selection-start-line="169" selection-start-column="3" selection-end-line="169" selection-end-column="3" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>

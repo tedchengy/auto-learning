@@ -148,7 +148,7 @@ if __name__ == '__main__':
         ensemble_nbest=50,
     )
 
-    predictions = automl.predict(X_test)
+    predictions = automl.predict(X_test, )
     print(automl.show_models())
     print("Accuracy score", metrics.accuracy_score(y_test, predictions))
     print("roc_auc_score:\n ", metrics.roc_auc_score(y_test, predictions))

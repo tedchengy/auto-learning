@@ -1,27 +1,171 @@
 from sklearn.linear_model import SGDClassifier
 from sklearn.linear_model import SGDRegressor
 from hyperopt import fmin, tpe, hp, partial, Trials, STATUS_OK
+from sklearn import metrics
 
 
-class IncrementalLearningBase:
+class IncrementalModelBase:
     def __init__(self, ):
         pass
 
     def fit(self, X, y, **fit_params):
         pass
 
+    def predict(self, X, batch_size=None):
+        pass
+
+
+class IncrementalClassifierModel(IncrementalModelBase):
+    def __init__(self, loss='hinge', penalty='l2', l1_ratio=0.15, epsilon=0.1):
+        self.loss = loss
+        self.penalty = penalty
+        self.l1_ratio = l1_ratio
+        self.epsilon = epsilon
+        self.estimator = None
+        self.classes = None
+        self.random_state = 0
+        self.sample_weight = 5000
+        self.sample_index = 3
+
+    def _fit(self, X, y, **kwargs):
+        from sklearn.linear_model import SGDClassifier
+
+        estimator = SGDClassifier(
+            loss=self.loss,
+            penalty=self.penalty,
+            l1_ratio=self.l1_ratio,
+            epsilon=self.epsilon,
+            random_state=self.random_state,
+        )
+
+        if self.classes is None:
+            classes = y.drop_duplicates()
+
+        for i in range(self.sample_index):
+            for xpi, ypi in self.sampling(X, y):
+                estimator.partial_fit(xpi, ypi, classes=classes)
+
+        self.estimator = estimator
+        return self
+
+    def predict(self, X, **kwargs):
+        if self.estimator is None:
+            raise NotImplementedError
+        return self.estimator.predict(X, )
+
+    def sampling(self, X, y):
+        s = self.sample_weight
+        loop = int(X.shape[0] / s) + 1
+        for i in range(loop):
+            yield X[i * s:(i + 1) * s], y[i * s:(i + 1) * s]
+
+    def score(self, X, label):
+        y = self.estimator.predict(X)
+        if isinstance(y, pd.Series):
+            num1 = len(y.drop_duplicates())
+        else:
+            num1 = len(set(y))
+
+        if isinstance(label, pd.Series):
+            num2 = len(label.drop_duplicates())
+        else:
+            num2 = len(set(label))
+
+        if num1 == 2 and num2 == 2:
+            return metrics.roc_auc_score(label, y)
+        else:
+            return metrics.accuracy_score(label, y)
+
+    def f(self):
+        global best_score, count
+        # print('####' + str(params))
+        count += 1
+
+        try:
+            clf = IncrementalClassifierModel(**params)._fit(data, target)
+            label = clf.predict(data)
+            score = metrics.roc_auc_score(label, target)
+        except:
+            score = 0
+
+        if score > best_score:
+            # print('new best:', score, 'using:', str(params))
+            best_score = score
+        if count % 100 == 0:
+            print('iters:', count, ', score:', score, 'using', params)
+        return {'loss': -score, 'status': STATUS_OK}
+
 
 if __name__ == '__main__':
     from sklearn.datasets import load_iris
-    data = load_iris()
-    target = data.target
-    data = data.data
-    model = SGDClassifier()
-    model.fit(data, target)
-    model.predict(data)
+    import pandas as pd
+    import time
+
+    random_state = 0
+
+    # data = load_iris()
+    # target = data.target
+    # data = data.data
+
+    data = pd.read_csv('/r2/data/creditcard_01.csv')
+    target = data['Class']
+    data.drop('Class', axis=1, inplace=True)
+
+    time_a1 = time.time()
+    model_a = SGDClassifier(random_state=random_state)
+    model_a.fit(data, target)
+    label_a = model_a.predict(data)
+    time_a2 = time.time()
+    print(metrics.accuracy_score(target, label_a))
+    print(metrics.roc_auc_score(target, label_a))
+    print(round((time_a2 - time_a1), 5))
+
+    time_b1 = time.time()
+    model_b = IncrementalClassifierModel()
+    model_b._fit(data, target)
+    label_b = model_b.predict(data)
+    time_b2 = time.time()
+    print(metrics.accuracy_score(target, label_b))
+    print(metrics.roc_auc_score(target, label_b))
+    print(round((time_b2 - time_b1), 5))
+
+space = {
+    'loss': hp.choice('loss', ['hinge', 'log', 'modified_huber', 'squared_hinge', 'perceptron', 'squared_loss', 'huber',
+                               'epsilon_insensitive', 'squared_epsilon_insensitive']),
+    'penalty': hp.choice('penalty', ['l2', 'l1', 'elasticnet']),
+    'l1_ratio': hp.uniform('l1_ratio', 0, 1),
+    'epsilon': hp.uniform('epsilon', 0, 1),
+}
+
+count = 0
+best_score = 0
 
 
+def f(params):
+    global best_score, count
+    # print('####', params)
+    count += 1
 
+    try:
+        clf = IncrementalClassifierModel(**params)._fit(data, target)
+        label = clf.predict(data)
+        score = metrics.roc_auc_score(label, target)
+    except:
+        score = 0
+
+    if score > best_score:
+        # print(score)
+        # print('new best:', score, 'using:', params)
+        best_score = score
+    if count % 100 == 0:
+        print('iters:', count, 'score:', score, 'using', params)
+    return {'loss': -score, 'status': STATUS_OK}
+
+
+trials = Trials()
+best = fmin(f, space, algo=tpe.suggest, max_evals=100, trials=trials)
+print('best:')
+print(best)
 
 '''
 class EnsembleSelection(AbstractEnsemble):

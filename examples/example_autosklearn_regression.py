@@ -29,7 +29,7 @@ def main():
                feat_type=feature_types)
 
     print(automl.show_models())
-    predictions = automl.predict(X_test)
+    predictions = automl.predict(X_test, )
     print("R2 score:", sklearn.metrics.r2_score(y_test, predictions))
 
 

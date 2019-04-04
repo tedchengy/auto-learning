@@ -35,6 +35,6 @@ X_train, X_test, y_train, y_test = train_test_split(data, targets, test_size=0.3
 cls = autosklearn.classification.AutoSklearnClassifier(time_left_for_this_task=60 * MINUTE,
                                                        ml_memory_limit=1024 * MEMORY, per_run_time_limit=60*1)
 cls.fit(X_train, y_train)
-predictions = cls.predict(X_test)
+predictions = cls.predict(X_test, )
 print("Accuracy score", metrics.accuracy_score(y_test, predictions))
 print("roc_auc_score:\n ", metrics.roc_auc_score(y_test, predictions))

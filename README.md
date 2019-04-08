@@ -19,5 +19,7 @@ data = data.data
 p = HyperoptClassifierParameter(data, target)
 p.function_min()
 print(p.best_space)
+print(p.estimator.estimator)
 print(p.classifier_f(p.best_space))
+```
 

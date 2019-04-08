@@ -22,8 +22,8 @@ class AbstractEnsemble(object):
         model_identifiers : identifier for each base model.
             Can be used for practical text output of the ensemble.
 
-        Returns
         -------
+        Returns
         self
 
         """

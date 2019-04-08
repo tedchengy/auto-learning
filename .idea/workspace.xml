@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48f1286d-c1a3-48e5-a406-fb778b7709e5" name="Default Changelist" comment="" />
+    <list default="true" id="48f1286d-c1a3-48e5-a406-fb778b7709e5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/autolearning/ensembles/parameter_optimization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autolearning/ensembles/abstract_ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/autolearning/ensembles/abstract_ensemble.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,13 +16,14 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/auto_learning$hyperopt.coverage" NAME="hyperopt Coverage Results" MODIFIED="1553504987420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/auto_learning$ensemble_selection__1_.coverage" NAME="ensemble_selection (1) Coverage Results" MODIFIED="1554360151294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/autolearning/ensembles" />
+    <SUITE FILE_PATH="coverage/auto_learning$parameter_optimization.coverage" NAME="parameter_optimization Coverage Results" MODIFIED="1554712353903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/autolearning/ensembles" />
     <SUITE FILE_PATH="coverage/auto_learning$example_autosklearn_regression.coverage" NAME="example_autosklearn_regression Coverage Results" MODIFIED="1552967064033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/auto_learning$doc.coverage" NAME="doc Coverage Results" MODIFIED="1553240082840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/auto_learning$example_autosklearn_single.coverage" NAME="example_autosklearn_single Coverage Results" MODIFIED="1552974300040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/auto_learning$abstract_ensemble.coverage" NAME="abstract_ensemble Coverage Results" MODIFIED="1554355968034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto-learning/ensembles" />
     <SUITE FILE_PATH="coverage/auto_learning$ex_fmin.coverage" NAME="ex_fmin Coverage Results" MODIFIED="1553591867284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/auto_learning$tune.coverage" NAME="tune Coverage Results" MODIFIED="1553590056485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/r2/conda/envs/py3_dask/lib/python3.6/site-packages/ray/tune" />
-    <SUITE FILE_PATH="coverage/auto_learning$ensemble_selection.coverage" NAME="ensemble_selection Coverage Results" MODIFIED="1554370752236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/autolearning/ensembles" />
+    <SUITE FILE_PATH="coverage/auto_learning$ensemble_selection.coverage" NAME="ensemble_selection Coverage Results" MODIFIED="1554712534507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/autolearning/ensembles" />
     <SUITE FILE_PATH="coverage/auto_learning$example_autosklearn_multi.coverage" NAME="example_autosklearn_multi Coverage Results" MODIFIED="1552967607538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
   </component>
   <component name="FileEditorManager">
@@ -25,41 +31,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autolearning/ensembles/abstract_ensemble.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state relative-caret-position="1128">
+              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
+                <marker date="1554712532664" expanded="true" signature="2027:2101" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py">
+        <entry file="file://$PROJECT_DIR$/autolearning/ensembles/parameter_optimization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="164" column="16" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+            <state relative-caret-position="168">
+              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
+                <element signature="e#0#55#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/example_autosklearn_multi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2568">
-              <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
-              <folding>
-                <element signature="e#556#578#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1713724213/builtins.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="4428" column="8" selection-start-line="4428" selection-start-column="8" selection-end-line="4428" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -67,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autolearning/pipeline/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="1896">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -77,9 +75,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/autolearning/pipeline/regression.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="665">
+              <caret line="282" selection-start-line="282" selection-end-line="282" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autolearning/pipeline/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2784">
+            <state relative-caret-position="2928">
               <caret line="122" column="42" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="42" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
@@ -100,6 +110,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>SGD</find>
+      <find>data</find>
+      <find>partial</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,15 +135,17 @@
         <option value="$PROJECT_DIR$/auto-learning/pipeline/regression.py" />
         <option value="$PROJECT_DIR$/auto-learning/ensembles/ensemble_selection.py" />
         <option value="$PROJECT_DIR$/autolearning/pipeline/classification.py" />
+        <option value="$PROJECT_DIR$/autolearning/ensembles/abstract_ensemble.py" />
         <option value="$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py" />
+        <option value="$PROJECT_DIR$/autolearning/ensembles/parameter_optimization.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="65" />
-    <option name="y" value="124" />
-    <option name="width" value="2491" />
-    <option name="height" value="1316" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1092" />
+    <option name="y" value="152" />
+    <option name="width" value="1868" />
+    <option name="height" value="1271" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -139,7 +153,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,6 +191,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -185,6 +199,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -206,7 +221,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.ensemble_selection">
     <configuration name="ensemble_selection" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="auto-learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -229,9 +244,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="parameter_optimization" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="auto-learning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/autolearning/ensembles" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/autolearning/ensembles/parameter_optimization.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.ensemble_selection" />
+        <item itemvalue="Python.parameter_optimization" />
       </list>
     </recent_temporary>
   </component>
@@ -254,11 +292,12 @@
       <workItem from="1553737176845" duration="2408000" />
       <workItem from="1554350645404" duration="4225000" />
       <workItem from="1554360149839" duration="12071000" />
+      <workItem from="1554687762114" duration="21061000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50335000" />
+    <option name="totallyTimeSpent" value="71396000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -273,18 +312,18 @@
     <frame x="65" y="-4" width="2495" height="1444" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25502256" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25789258" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40855107" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40855107" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3935075" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293745" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.30245447" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.354711" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32950193" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3293745" />
@@ -384,38 +423,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py</url>
-          <line>99</line>
+          <line>71</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py</url>
-          <line>109</line>
+          <line>80</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py</url>
-          <line>122</line>
+          <line>93</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py</url>
-          <line>129</line>
+          <line>100</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py</url>
-          <line>125</line>
+          <line>96</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py</url>
-          <line>149</line>
-          <option name="timeStamp" value="49" />
+          <url>file://$PROJECT_DIR$/autolearning/ensembles/parameter_optimization.py</url>
+          <line>92</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py</url>
-          <line>155</line>
-          <option name="timeStamp" value="51" />
+          <url>file://$PROJECT_DIR$/autolearning/ensembles/parameter_optimization.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -428,9 +467,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/autolearning/ensembles/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/example_regression.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -534,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="868" selection-start-line="868" selection-end-line="868" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/past/types/basestring.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -625,37 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6768">
-          <caret line="282" selection-start-line="282" selection-end-line="282" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7392">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/sklearn/pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2209">
           <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2784">
-          <caret line="122" column="42" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,53 +668,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autolearning/ensembles/abstract_ensemble.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/fmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="370" selection-start-line="370" selection-end-line="370" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1713724213/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
+        <state relative-caret-position="604">
           <caret line="4428" column="8" selection-start-line="4428" selection-start-column="8" selection-end-line="4428" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/classification.py">
+    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/pyll/stochastic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="535">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
           <folding>
-            <element signature="e#0#62#0" expanded="true" />
+            <element signature="e#47#84#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/rand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autolearning/ensembles/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/example_autosklearn_multi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2568">
-          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+        <state relative-caret-position="-1332">
+          <caret line="75" column="62" lean-forward="true" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
           <folding>
             <element signature="e#556#578#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/pyll/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="936" selection-start-line="936" selection-end-line="936" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/tpe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="914" selection-start-line="914" selection-end-line="914" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/fmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3222">
+          <caret line="266" column="22" selection-start-line="266" selection-start-column="22" selection-end-line="266" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///r2/conda/envs/py3_dask/lib/python3.6/site-packages/hyperopt/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="848" selection-start-line="848" selection-end-line="848" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autolearning/ensembles/abstract_ensemble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1128">
+          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1896">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="282" selection-start-line="282" selection-end-line="282" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autolearning/pipeline/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2928">
+          <caret line="122" column="42" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/autolearning/ensembles/ensemble_selection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="164" column="16" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+        <state relative-caret-position="144">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
+            <marker date="1554712532664" expanded="true" signature="2027:2101" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autolearning/ensembles/parameter_optimization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>

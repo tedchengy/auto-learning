@@ -16,6 +16,7 @@ class HyperoptClassifierParameter:
         self.best_space = {}  # hyperopt 转换后返回的最优参数空间
         self.best_loss_result = 0
         self.trials = None
+        self.estimator = None
 
     def classifier_f(self, params):
         # print('####', params)
@@ -34,6 +35,7 @@ class HyperoptClassifierParameter:
         if score > self.best_score:
             # print('new best:', score, 'using:', params)
             self.best_score = score
+            self.estimator = clf
         if self.count % 100 == 0:
             print('iters:', self.count, 'score:', score, 'using', params)
         return {'loss': -score, 'status': STATUS_OK}
@@ -91,4 +93,5 @@ if __name__ == '__main__':
     p = HyperoptClassifierParameter(data, target)
     p.function_min()
     print(p.best_space)
+    print(p.estimator.estimator)
     print(p.classifier_f(p.best_space))

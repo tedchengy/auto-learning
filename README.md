@@ -1,11 +1,11 @@
 # auto-learning
 ## auto-lncremental-learning
-## 功能：自动增量学习
-### intro 
-### 简介
+#### 功能：自动增量学习
+## intro 
+#### 简介
 auto-learning is a python library that wraps sklearn partial_fit and hyperopt for auto lncremental learning.It runs much fast.
-### sample
-### 示例
+## sample
+#### 示例
 ```python
 from autolearning.ensembles.parameter_optimization import HyperoptClassifierParameter
 from sklearn.datasets import load_iris

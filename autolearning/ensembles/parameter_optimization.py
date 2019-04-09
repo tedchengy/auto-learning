@@ -1,11 +1,11 @@
-from autolearning.ensembles.ensemble_selection import *
+from autolearning.ensembles.basic_model import *
 from hyperopt import fmin, tpe, hp, Trials, STATUS_OK, space_eval, partial
 from sklearn import preprocessing
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 
-class ClassifierParameterOptimization:
+class ParameterOptimizationBase:
     def __init__(self, data, target, ):
 
         self.data = data
@@ -20,9 +20,10 @@ class ClassifierParameterOptimization:
         self.best_space = {}  # hyperopt 转换后返回的最优参数空间
         self.best_loss_result = 0
         self.trials = None
+        self.model = None
         self.estimator = None
 
-    def classifier_f(self, params):
+    def function(self, params):
         # print('####', params)
         self.count += 1
 
@@ -38,27 +39,61 @@ class ClassifierParameterOptimization:
                 data_ = LinearDiscriminantAnalysis().fit(data_, self.target).transform(data_)
             del params['preprocess']
 
-        try:
-            clf = IncrementalClassifierModel(**params).fit(data_, self.target)
-        except Exception as e:
-            print('e:', e, 'params:', params)
-            score = 0
-        else:
-            # label = clf.predict(self.data)
-            # score = metrics.roc_auc_score(label, self.target)
-            score = clf.score(data_, self.target)
+        score = self.model_fit(data_, params)
 
         if score > self.best_score:
             # print('new best:', score, 'using:', params)
             self.best_score = score
-            self.estimator = clf
+            self.estimator = self.model
         if self.count % 100 == 0:
             print('iters:', self.count, 'score:', score, 'using', params)
         return {'loss': -score, 'status': STATUS_OK}
 
+    def function_min(self, ):
+        self.space = self.search_space()
+        if self.trials is None:
+            self.trials = Trials()
+
+        algo = partial(tpe.suggest, n_startup_jobs=self.n_startup_jobs)
+        self.best = fmin(self.function, self.space, algo=algo, max_evals=30, trials=self.trials)
+        before_hold = self.trials.best_trial['result']['loss']
+        self.best = fmin(self.function, self.space, algo=algo, max_evals=60, trials=self.trials)
+        after_hold = self.trials.best_trial['result']['loss']
+
+        index = 60
+        while (before_hold - after_hold) > 1e-04:
+            index = index + 30
+            self.best = fmin(self.function, self.space, algo=algo, max_evals=index, trials=self.trials)
+            before_hold, after_hold = after_hold, self.trials.best_trial['result']['loss']
+
+        self.best_loss_result = self.trials.best_trial['result']['loss']
+        return self.transform_space()
+
     def transform_space(self, ):
         self.best_space = space_eval(self.space, self.best)
-        return self.best_space
+
+
+
+    def search_space(self, ):
+        pass
+
+
+class ClassifierParameterOptimization(ParameterOptimizationBase):
+    def __init__(self, data, target, ):
+        super(ClassifierParameterOptimization, self).__init__(data=data, target=target, )
+
+    def model_fit(self, data_, params):
+        try:
+            model = IncrementalClassifierModel(**params).fit(data_, self.target)
+        except Exception as e:
+            print('e:', e, 'params:', params)
+            score = 0
+        else:
+            # label = model.predict(self.data)
+            # score = metrics.roc_auc_score(label, self.target)
+            self.model = model
+            score = model.score(data_, self.target)
+        return score
 
     def search_space(self, ):
         self.space = {
@@ -72,44 +107,53 @@ class ClassifierParameterOptimization:
         }
         return self.space
 
-    def function_min(self, ):
-        self.space = self.search_space()
-        if self.trials is None:
-            self.trials = Trials()
 
-        algo = partial(tpe.suggest, n_startup_jobs=self.n_startup_jobs)
-        self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=30, trials=self.trials)
-        before_hold = self.trials.best_trial['result']['loss']
-        self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=60, trials=self.trials)
-        after_hold = self.trials.best_trial['result']['loss']
+class RegressorParameterOptimization(ParameterOptimizationBase):
+    def __init__(self, data, target, ):
+        super(RegressorParameterOptimization, self).__init__(data=data, target=target, )
 
-        index = 60
-        while (before_hold - after_hold) > 1e-04:
-            index = index + 30
-            self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=index, trials=self.trials)
-            before_hold, after_hold = after_hold, self.trials.best_trial['result']['loss']
+    def model_fit(self, data_, params):
+        try:
+            model = IncrementalRegressorModel(**params).fit(data_, self.target)
+        except Exception as e:
+            print('e:', e, 'params:', params)
+            score = 0
+        else:
+            self.model = model
+            score = model.score(data_, self.target)
+        return score
 
-        self.best_loss_result = self.trials.best_trial['result']['loss']
-        return self.transform_space()
+    def search_space(self, ):
+        self.space = {
+            'loss': hp.choice('loss', ['huber', 'epsilon_insensitive', 'squared_epsilon_insensitive']),
+            'penalty': hp.choice('penalty', ['l2', 'l1', 'elasticnet']),
+            'l1_ratio': hp.uniform('l1_ratio', 0, 1),
+            'epsilon': hp.uniform('epsilon', 0, 1),
+
+            'preprocess': hp.choice('preprocess', [None, 'normalize', 'scale', 'pca', ]),
+        }
+        return self.space
 
 
 if __name__ == '__main__':
     from sklearn.datasets import load_iris
+    from sklearn.datasets import load_boston
     import pandas as pd
-    import time
 
     random_state = 0
 
+    data = load_boston()
     # data = load_iris()
-    # target = data.target
-    # data = data.data
+    target = data.target
+    data = data.data
 
-    data = pd.read_csv('/r2/data/creditcard_01.csv')
-    target = data['Class']
-    data.drop('Class', axis=1, inplace=True)
+    # data = pd.read_csv('/r2/data/creditcard_01.csv')
+    # target = data['Class']
+    # data.drop('Class', axis=1, inplace=True)
 
-    p = ClassifierParameterOptimization(data, target)
+    # p = ClassifierParameterOptimization(data, target)
+    p = RegressorParameterOptimization(data, target)
     p.function_min()
     print(p.best_space)
     print(p.estimator.estimator)
-    print(p.classifier_f(p.best_space))
+    print(p.function(p.best_space))

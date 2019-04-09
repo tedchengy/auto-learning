@@ -3,8 +3,10 @@
     <words>
       <w>algo</w>
       <w>compoents</w>
+      <w>elasticnet</w>
       <w>hyperopt</w>
       <w>iters</w>
+      <w>regressor</w>
     </words>
   </dictionary>
 </component>

@@ -35,6 +35,8 @@ class IncrementalClassifierModel(IncrementalModelBase):
             l1_ratio=self.l1_ratio,
             epsilon=self.epsilon,
             random_state=self.random_state,
+            max_iter=1000,
+            tol=1e-3,
         )
 
         if self.classes is None:
@@ -83,7 +85,7 @@ if __name__ == '__main__':
     data.drop('Class', axis=1, inplace=True)
 
     time_a1 = time.time()
-    model_a = SGDClassifier(random_state=random_state)
+    model_a = SGDClassifier(max_iter=1000, tol=1e-3, random_state=random_state)
     model_a.fit(data, target)
     label_a = model_a.predict(data)
     time_a2 = time.time()
@@ -99,7 +101,6 @@ if __name__ == '__main__':
     print(metrics.accuracy_score(target, label_b))
     print(metrics.roc_auc_score(target, label_b))
     print(round((time_b2 - time_b1), 5))
-
 
 '''
 class EnsembleSelection(AbstractEnsemble):

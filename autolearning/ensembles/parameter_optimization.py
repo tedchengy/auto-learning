@@ -1,12 +1,16 @@
 from autolearning.ensembles.ensemble_selection import *
 from hyperopt import fmin, tpe, hp, Trials, STATUS_OK, space_eval, partial
+from sklearn import preprocessing
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 
-class HyperoptClassifierParameter:
+class ClassifierParameterOptimization:
     def __init__(self, data, target, ):
 
         self.data = data
         self.target = target
+        self.columns = data.shape[-1]
 
         self.n_startup_jobs = 20
         self.best_score = 0
@@ -22,15 +26,27 @@ class HyperoptClassifierParameter:
         # print('####', params)
         self.count += 1
 
+        data_ = self.data[:]
+        if 'preprocess' in params:
+            if params['preprocess'] == 'normalize':
+                data_ = preprocessing.normalize(data_)
+            elif params['preprocess'] == 'scale':
+                data_ = preprocessing.scale(data_)
+            elif params['preprocess'] == 'pca':
+                data_ = PCA().fit_transform(data_)
+            elif params['preprocess'] == 'lda':
+                data_ = LinearDiscriminantAnalysis().fit(data_, self.target).transform(data_)
+            del params['preprocess']
+
         try:
-            clf = IncrementalClassifierModel(**params).fit(self.data, self.target)
+            clf = IncrementalClassifierModel(**params).fit(data_, self.target)
         except Exception as e:
             print('e:', e, 'params:', params)
             score = 0
         else:
             # label = clf.predict(self.data)
             # score = metrics.roc_auc_score(label, self.target)
-            score = clf.score(self.data, self.target)
+            score = clf.score(data_, self.target)
 
         if score > self.best_score:
             # print('new best:', score, 'using:', params)
@@ -51,6 +67,8 @@ class HyperoptClassifierParameter:
             'penalty': hp.choice('penalty', ['l2', 'l1', 'elasticnet']),
             'l1_ratio': hp.uniform('l1_ratio', 0, 1),
             'epsilon': hp.uniform('epsilon', 0, 1),
+
+            'preprocess': hp.choice('preprocess', [None, 'normalize', 'scale', 'pca', 'lda']),
         }
         return self.space
 
@@ -60,14 +78,14 @@ class HyperoptClassifierParameter:
             self.trials = Trials()
 
         algo = partial(tpe.suggest, n_startup_jobs=self.n_startup_jobs)
-        self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=10, trials=self.trials)
+        self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=30, trials=self.trials)
         before_hold = self.trials.best_trial['result']['loss']
-        self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=25, trials=self.trials)
+        self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=60, trials=self.trials)
         after_hold = self.trials.best_trial['result']['loss']
 
-        index = 25
-        while (before_hold - after_hold) > 1e-03:
-            index = index + 5
+        index = 60
+        while (before_hold - after_hold) > 1e-04:
+            index = index + 30
             self.best = fmin(self.classifier_f, self.space, algo=algo, max_evals=index, trials=self.trials)
             before_hold, after_hold = after_hold, self.trials.best_trial['result']['loss']
 
@@ -90,7 +108,7 @@ if __name__ == '__main__':
     target = data['Class']
     data.drop('Class', axis=1, inplace=True)
 
-    p = HyperoptClassifierParameter(data, target)
+    p = ClassifierParameterOptimization(data, target)
     p.function_min()
     print(p.best_space)
     print(p.estimator.estimator)

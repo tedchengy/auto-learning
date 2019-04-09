@@ -16,7 +16,7 @@ target = data.target
 data = data.data
 
 
-p = HyperoptClassifierParameter(data, target)
+p = ClassifierParameterOptimization(data, target)
 p.function_min()
 print(p.best_space)
 print(p.estimator.estimator)
